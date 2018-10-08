@@ -1,0 +1,87 @@
+[{
+    "recom": {
+      "type": "section",
+      "name": "Uterus",
+      "item": [{
+        "name": "Overall",
+        "type": "RADIO",
+        "state": "is anteverted and gravid",
+        "stateoption": ["is anteverted and gravid", "is retroverted and gravid", "*.*"],
+        "impression": ""
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "section",
+      "name": "Liver",
+      "item": [{
+        "name": "Overall",
+        "type": "RADIO",
+        "state": "is normal in size, contour and echopattern",
+        "stateoption": ["is normal in size, contour and echopattern", "is mildly enlarged in size, but with regular contour and echopattern"],
+        "impression": "empty"
+      },{
+        "name": "Focal Lesions",
+        "type": "RADIO",
+        "state": "are not seen",
+        "stateoption": ["are not seen", "seen *.* details"],
+        "impression": "empty"
+      },{
+        "name": "Portal Vein",
+        "type": "TEXT",
+        "state": "appears normal in shape and size",
+        "stateoption": "",
+        "impression": "empty"
+      },{
+        "name": "",
+        "type": "TEXT",
+        "state": "measures *.* cm",
+        "stateoption": "",
+        "impression": "empty"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "statement",
+      "name": "Statuatory Note",
+      "item": [{
+        "state": "Detailed anomaly scan is not possible at this stage of gestation and the same is explained to the patient, attendant."
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "section",
+      "name": "Fetal Cardiac Activity",
+      "item": [{
+        "name": "Overall",
+        "type": "TEXT",
+        "state": "is visialized. FHR is *.* beats/min",
+        "stateoption": "",
+        "impression": "empty"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "table",
+      "name": "Fetal Biometry",
+      "item": [{
+        "Parameter": "HC",
+        "Measurement": "*.* cm",
+        "Vinay": "*.* cm"
+
+      },{
+        "Parameter": "AC",
+        "Measurement": "*.* cm",
+        "Vinay": "*.* cm"
+      },{
+        "Parameter": "FL",
+        "Measurement": "*.* cm",
+        "Vinay": "*.* cm"
+      }]
+    }
+  }
+]

@@ -1,0 +1,13 @@
+<div>
+  <div class="pop_head">Select</div>
+  <mat-radio-group layout="row" class="example-radio-group">
+    <mat-radio-button class="example-radio-button" (click)="selectValue(item, i)" *ngFor="let item of data;let i = index" [value]="item">
+      <span *ngIf="!isEditable(i)" (click)="makeEditable(i)">{{item}}</span>
+      <input *ngIf="isEditable(i)" class='editable' [value]="item" [(ngModel)]="dataValue[i]">
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="footer_pop">
+  <button type="button" class="btn btn-primary pop_btn" (click)="getSelectedValue()" [mat-dialog-close]="dataValue[selectedIndex]"
+    cdkFocusInitial>Ok</button>
+</div>

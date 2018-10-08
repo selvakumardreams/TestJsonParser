@@ -1,0 +1,63 @@
+{
+	"$schema": "http://json-schema.org/draft-04/hyper-schema#",
+	"type": "object",
+	"properties": {
+		"Fetus": {
+			"type": "string",
+			"widget": "select",
+			"description": "Fetus",
+			"oneOf": [
+				{
+					"description": "Intrauterine fetus with good cardiac activity seen",
+					"enum": [
+						"Intrauterine"
+					]
+				},
+				{
+					"description": "freetext",
+					"enum": [
+						"freetext"
+					]
+				}
+			],
+			"default": "Intrauterine"
+		},
+		"freetext": {
+			"type": "string",
+			"minLength": 2,
+			"visibleIf": {
+				"Fetus": [
+					"freetext"
+				]
+			}
+		},
+		"FetusHeart": {
+			"type": "string",
+			"placeholder": "Fetal Heart Rate is",
+			"minLength": 2,
+			"maxLength": 40,
+			"title": "Fetal Heart Rate is",
+			"description": "Last name"
+		}
+		
+	},
+	"buttons": [
+		{
+			"label": "Submit",
+			"id": "submit"
+		}
+	],
+	"fieldsets": [
+		{
+			"id": "part_1",
+			"title": "Observations",
+			"fields": [
+				"Fetus",
+				"freetext",
+				"FetusHeart"
+			]
+		}
+	],
+	"required": [
+	]
+}

@@ -1,0 +1,43 @@
+[{
+    "section": {
+      "name": "Uterus",
+      "row": "-1",
+      "item": [{
+        "visible": "false",
+        "col": "1",
+        "type": "RADIO",
+        "state": "is anteverted and gravid",
+        "stateoption": "is anteverted and gravid:is retroverted and gravid:*.*",
+        "impression": ""
+      }]
+    }
+  },
+  {
+    "section": {
+      "name": "Intrauterine Gestational Sac",
+      "row": "2",
+      "item": [{
+        "visible": "false",
+        "col": "2",
+        "type": "RADIO",
+        "state": "is not seen",
+        "stateoption": "is not seen:is seen; Size *.*  x  *.*   x *.*  cm:*.*",
+        "impression": "Intrauterine Gestational Sac"
+      }]
+    }
+  },
+  {
+    "section": {
+      "name": "Sac Margins",
+      "row": "-1",
+      "item": [{
+        "visible": "true",
+        "col": "1",
+        "type": "RADIO",
+        "state": "are regular",
+        "stateoption": "are regular:are slightly irregular",
+        "impression": "Blighted Ovum (Anembryonic Gestation)"
+      }]
+    }
+  }
+]

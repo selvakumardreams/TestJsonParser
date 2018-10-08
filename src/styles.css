@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  perspective: 1500px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+.grey {
+  background-color: rgb(143, 140, 140);
+  color: #fff;
+}
+
+h4 {
+  margin-top: 25px;
+}
+
+.row {
+  margin-bottom: px;
+}
+
+.row .row {
+  margin-bottom: 0;
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+.borderless td,
+.borderless th {
+  border: none;
+}
+
+.black-background {
+  background-color: rgb(241, 243, 243);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+button[type="submit"] {
+  -webkit-appearance: button;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background: #4c7d90;
+}
+
+a {
+  color: #f2f2f2;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.cdk-overlay-pane {
+  min-width: 500px !important;
+}
+
+.btn {
+  text-align: left;
+  white-space: inherit !important;
+}
+
+div.table {
+  display: table;
+  width: 100%;
+  background-color:rgb(143, 140, 140);
+  border-collapse: collapse;
+}
+
+div.row {
+  display: table-row;
+}
+
+div.cell {
+  display: table-cell;
+}
+
+div.colspan,
+div.colspan+div.cell {
+  border: 0;
+}
+
+div.colspan>div {
+  width: 1px;
+}
+
+div.colspan>div>div {
+  position: relative;
+  width: 99px;
+  overflow: hidden;
+}

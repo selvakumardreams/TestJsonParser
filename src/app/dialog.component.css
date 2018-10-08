@@ -1,0 +1,46 @@
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+.noBorder {
+  border-width: 0px;
+  border-style: inset;
+  border-color: initial;
+}
+
+input:focus {
+  outline: none;
+}
+.editable {
+  width: 421px;
+}
+
+.pop_head {
+  padding: 10px;
+  background: #4c7d90;
+  text-align: left;
+  color: #fff;
+}
+.footer_pop {
+  padding: 10px;
+  background: #cccccc6e;
+  float: left;
+  width: 100%;
+}
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 7px !important;
+}
+.pop_btn {
+  float: right;
+}
