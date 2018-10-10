@@ -1,0 +1,248 @@
+[{
+    "recom": {
+      "type": "section",
+      "name": "Uterus",
+      "item": [{
+          "name": "Overall",
+          "type": "TEXT",
+          "state": "Intrauterine fetus with good fetal cardiac activity is seen",
+          "stateoption": "",
+          "impression": "Uterus impression --"
+        },
+        {
+          "name": "Fetal Heart Rate",
+          "type": "TEXT",
+          "state": "is *.* beats / minute",
+          "stateoption": "",
+          "impression": "Uterus impression --"
+        },
+        {
+          "name": "Overall",
+          "type": "TEXT",
+          "state": "No loop of cord noted around the neck at present",
+          "stateoption": "",
+          "impression": "Uterus impression --"
+        }
+      ]
+    }
+  },
+  {
+    "recom": {
+      "type": "table",
+      "name": "",
+      "item": [{
+        "Visualized Parts": "Fetal Cranium",
+        "Observation": "Normal"
+      }, {
+        "Visualized Parts": "Spine",
+        "Observation": "Normal"
+      }, {
+        "Visualized Parts": "Four chamber view of cardia",
+        "Observation": "Normal"
+      }, {
+        "Visualized Parts": "Stomach",
+        "Observation": "Normal"
+      }, {
+        "Visualized Parts": "Both kidneys",
+        "Observation": "Normal"
+      }, {
+        "Visualized Parts": "Urinary Bladder",
+        "Observation": "Normal"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "statement",
+      "name": "Statuatory Note",
+      "item": [{
+        "state": "Please note : All anomalies cannot be ruled out sonologically and detailed fetal echo is not a part of the study. This has been explained to the patient & attendant."
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "table",
+      "name": "Fetal Biometry",
+      "item": [{
+        "Parameter": "HC",
+        "Measurement": "*.* cm"
+      }, {
+        "Parameter": "AC",
+        "Measurement": "*.* cm"
+      }, {
+        "Parameter": "FL",
+        "Measurement": "*.* cm"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "section",
+      "name": "Calculated Gestational Age",
+      "item": [{
+        "name": "Overall",
+        "type": "TEXT",
+        "state": "*.* weeks and *.* days",
+        "stateoption": "",
+        "impression": " Liver impression"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "section",
+      "name": "Estimated Fetal Weight",
+      "item": [{
+        "name": "Overall",
+        "type": "TEXT",
+        "state": "is *.* kg (+/- 10%)",
+        "stateoption": "",
+        "impression": "impression"
+      }]
+    }
+  },
+  {
+    "recom": {
+      "type": "section",
+      "name": "Placenta",
+      "item": [{
+          "name": "Implantation",
+          "type": "RADIO",
+          "state": "is fundal, anterior and left in body of uterus with maturity grade of 1-2",
+          "stateoption": ["is fundal, anterior and left in body of uterus with maturity grade of 1-2",
+            "is fundal, posterior and left in body of uterus with maturity grade of 1-2"
+          ],
+          "impression": "impression"
+        },
+        {
+          "name": "Retroplacental  Heamatoma",
+          "type": "RADIO",
+          "state": "is not seen",
+          "stateoption": ["is not seen",
+            "is seen, *.* details"
+          ],
+          "impression": "Heamatoma"
+        }, {
+          "name": "Lower Margin of Placenta",
+          "type": "RADIO",
+          "state": "is well above the internal os",
+          "stateoption": ["is well above the internal os",
+            "is *.* cm above the internal os"
+          ],
+          "impression": "Heamatoma"
+        }, {
+          "name": "Liquor",
+          "type": "RADIO",
+          "state": "is adequate",
+          "stateoption": ["is adequate",
+            "is reduced",
+            "is increased; Largest pocket is *.* cm; AFI is *.*"
+          ],
+          "impression": "Reduced Liquor"
+        }, {
+          "name": "Cervical Length",
+          "type": "TEXT",
+          "state": "is *.* cm",
+          "stateoption": "",
+          "impression": "Reduced Liquor"
+        }, {
+          "name": "Internal os",
+          "type": "RADIO",
+          "state": "is closed",
+          "stateoption": ["is closed",
+            "*.* any other"
+          ],
+          "impression": "impression"
+        }
+      ]
+    }
+  },
+  {
+    "recom": {
+      "type": "table",
+      "name": "Bio Physical Score",
+      "item": [{
+        "Parameter": "Fetal Movements",
+        "Measurement": "*.*"
+      }, {
+        "Parameter": "Tone",
+        "Measurement": "*.* cm"
+      }, {
+        "Parameter": "Liquor",
+        "Measurement": "*.* cm"
+      }, {
+        "Parameter": "Breathing",
+        "Measurement": "*.* cm"
+      }, {
+        "Parameter": "Total",
+        "Measurement": "*.* cm"
+      }]
+    }
+  }, {
+    "recom": {
+      "type": "section",
+      "name": "Doppler",
+      "item": [{
+        "name": "Diastolic Flow in Umbilical Artery",
+        "type": "TEXT",
+        "state": "is good and there is no evidence of decreased diastolic flow or reversal at present in umbilical artery.",
+        "stateoption": "",
+        "impression": "impression"
+      }, {
+        "name": "Diastolic Flow in Middle Cerebral Artery",
+        "type": "TEXT",
+        "state": "No evidence of increased diastolic flow in middle cerebral artery.",
+        "stateoption": "",
+        "impression": "impression"
+      }, {
+        "name": "Ductus Venosus",
+        "type": "TEXT",
+        "state": "flow is normal (PI : *.*)",
+        "stateoption": "",
+        "impression": "impression"
+      }, {
+        "name": "Uterine Arteries",
+        "type": "TEXT",
+        "state": "show less resistance flow. No notching seen",
+        "stateoption": "",
+        "impression": "impression"
+      }]
+    }
+  },{
+    "recom": {
+      "type": "table",
+      "name": "Doppler Indices",
+      "item": [{
+        "Parameter": "Systolic Peak",
+        "Middle Cerebral Artery": "*.* cm/sec",
+        "Umbelical Artery": "*.* cm/sec"
+      }, {
+        "Parameter": "Diastolic Peak",
+        "Middle Cerebral Artery": "*.* cm/sec",
+        "Umbelical Artery": "*.* cm/sec"
+      }, {
+        "Parameter": "S/D Ratio",
+        "Middle Cerebral Artery": "*.*",
+        "Umbelical Artery": "*.*"
+      }, {
+        "Parameter": "PI",
+        "Middle Cerebral Artery": "*.*",
+        "Umbelical Artery": "*.*"
+      }, {
+        "Parameter": "RI",
+        "Middle Cerebral Artery": "*.*",
+        "Umbelical Artery": "*.*"
+      }]
+    }
+  },  {
+    "recom": {
+      "type": "table",
+      "name": "Cerebro Placental Ratio (CPR)",
+      "item": [{
+        "Parameter": "MCA PI / UA PI",
+        "Measurement": "*.*"
+      }]
+    }
+  }
+]

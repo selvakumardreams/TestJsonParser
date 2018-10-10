@@ -1,0 +1,58 @@
+<div class="container" id="content">
+  <h4 class="test-results-header" algin="center">
+    <strong> DIAGNOSTICS LABORATORY</strong>
+  </h4>
+  <hr>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Patient Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Age</th>
+        <th scope="col">Date of Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GAYATRI K</td>
+        <td>F</td>
+        <td>28</td>
+        <td>{{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="card  mb-3">
+    <div class="card-header">
+      Observations
+    </div>
+    <div class="card-body" *ngFor="let recom of recom$ | async">
+      {{recom.type}} {{recom.item}} {{recom.state}}
+    </div>
+  </div>
+
+
+  <div class="card  mb-3">
+    <div class="card-header">
+      Impression
+    </div>
+    <div class="card-body" *ngFor="let recom of recom$ | async">
+      {{recom.impression}}
+    </div>
+  </div>
+
+  <div></div>
+  <div class="card  mb-3">
+    <div class="card-header">
+      DECLARATION
+    </div>
+    <div class="card-body">
+      <p class="text-justify">I declare that while conducting this ultrasonography, I have neither detected nor disclosed
+        the sex of her foetus to anybody in any manner. (Images & explannations enclosed, further details - http://deltadiagnostics.in/ultrasound.html)
+      </p>
+    </div>
+  </div>
+  <!-- <button type="button" class="btn btn-success" (click)="generatePDF()">Generate PDF</button> -->
+</div>

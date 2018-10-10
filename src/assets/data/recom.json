@@ -7,7 +7,7 @@
         "type": "RADIO",
         "state": "is anteverted and gravid",
         "stateoption": ["is anteverted and gravid", "is retroverted and gravid", "*.*"],
-        "impression": ""
+        "impression": "Uterus impression --"
       }]
     }
   },
@@ -20,25 +20,25 @@
         "type": "RADIO",
         "state": "is normal in size, contour and echopattern",
         "stateoption": ["is normal in size, contour and echopattern", "is mildly enlarged in size, but with regular contour and echopattern"],
-        "impression": "empty"
+        "impression": " Liver impression"
       },{
         "name": "Focal Lesions",
         "type": "RADIO",
         "state": "are not seen",
         "stateoption": ["are not seen", "seen *.* details"],
-        "impression": "empty"
+        "impression": " Focal Lesions impression"
       },{
         "name": "Portal Vein",
         "type": "TEXT",
         "state": "appears normal in shape and size",
         "stateoption": "",
-        "impression": "empty"
+        "impression": " Portal Vein impression"
       },{
         "name": "",
         "type": "TEXT",
         "state": "measures *.* cm",
         "stateoption": "",
-        "impression": "empty"
+        "impression": "impression"
       }]
     }
   },
@@ -60,7 +60,7 @@
         "type": "TEXT",
         "state": "is visialized. FHR is *.* beats/min",
         "stateoption": "",
-        "impression": "empty"
+        "impression": "Fetal Cardiac Activity impression"
       }]
     }
   },
@@ -70,17 +70,13 @@
       "name": "Fetal Biometry",
       "item": [{
         "Parameter": "HC",
-        "Measurement": "*.* cm",
-        "Vinay": "*.* cm"
-
+        "Measurement": "*.* cm"
       },{
         "Parameter": "AC",
-        "Measurement": "*.* cm",
-        "Vinay": "*.* cm"
+        "Measurement": "*.* cm"
       },{
         "Parameter": "FL",
-        "Measurement": "*.* cm",
-        "Vinay": "*.* cm"
+        "Measurement": "*.* cm"
       }]
     }
   }
