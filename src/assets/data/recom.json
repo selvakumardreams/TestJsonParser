@@ -5,8 +5,8 @@
       "item": [{
         "name": "Overall",
         "type": "RADIO",
-        "state": "is anteverted and gravid",
-        "stateoption": ["is anteverted and gravid", "is retroverted and gravid", "*.*"],
+        "state": "Uterus is anteverted and gravid",
+        "stateoption": ["Uterus is anteverted and gravid", "is retroverted and gravid", "*.*"],
         "impression": "Uterus impression --"
       }]
     }
@@ -68,15 +68,19 @@
     "recom": {
       "type": "table",
       "name": "Fetal Biometry",
+      "heading": ["Parameter", "Middle Cerebral Artery", "test"],
       "item": [{
         "Parameter": "HC",
-        "Measurement": "*.* cm"
+        "Measurement1": "*.* cm",
+        "Measurement2": "*.* cm"
       },{
         "Parameter": "AC",
-        "Measurement": "*.* cm"
+        "Measurement1": "*.* cm",
+        "Measurement2": "*.* cm"
       },{
         "Parameter": "FL",
-        "Measurement": "*.* cm"
+        "Measurement1": "*.* cm",
+        "Measurement2": "*.* cm"
       }]
     }
   }

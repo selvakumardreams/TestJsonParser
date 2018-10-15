@@ -30,6 +30,7 @@
     "recom": {
       "type": "table",
       "name": "",
+      "heading": ["Visualized Parts", "Observation"],
       "item": [{
         "Visualized Parts": "Fetal Cranium",
         "Observation": "Normal"
@@ -64,6 +65,7 @@
     "recom": {
       "type": "table",
       "name": "Fetal Biometry",
+      "heading": ["Parameter", "Measurement"],
       "item": [{
         "Parameter": "HC",
         "Measurement": "*.* cm"
@@ -162,6 +164,7 @@
     "recom": {
       "type": "table",
       "name": "Bio Physical Score",
+      "heading": ["Parameter", "Measurement"],
       "item": [{
         "Parameter": "Fetal Movements",
         "Measurement": "*.*"
@@ -213,6 +216,7 @@
     "recom": {
       "type": "table",
       "name": "Doppler Indices",
+      "heading": ["Parameter", "Middle Cerebral Artery", "Umbelical Artery"],
       "item": [{
         "Parameter": "Systolic Peak",
         "Middle Cerebral Artery": "*.* cm/sec",
@@ -239,6 +243,7 @@
     "recom": {
       "type": "table",
       "name": "Cerebro Placental Ratio (CPR)",
+      "heading": ["Parameter", "Measurement"],
       "item": [{
         "Parameter": "MCA PI / UA PI",
         "Measurement": "*.*"

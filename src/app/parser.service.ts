@@ -9,7 +9,7 @@ import { RecomService } from './state/recom.service';
   providedIn: 'root'
 })
 export class ParserService {
-  parserUrl = 'assets/data/recom.json';  // URL to web api
+  parserUrl = 'assets/data/colordoppler.json';  // URL to web api
   data: BehaviorSubject<ParserData[]>;
 
   constructor(private http: HttpClient,
@@ -27,5 +27,4 @@ export class ParserService {
       this.recomService.addJson(data);
     });
   }
-
 }

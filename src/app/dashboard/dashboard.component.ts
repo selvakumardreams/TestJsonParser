@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { WidgetRegistry, Validator } from 'ngx-schema-form';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { akitaDevtools } from '@datorama/akita';
 import { Router } from '@angular/router';
 import { ParserData } from '../parser.data';
@@ -9,6 +9,8 @@ import { ParserService } from '../parser.service';
 import { AppService } from '../app.service';
 import { RecomService } from '../state/recom.service';
 import { SessionStorageService } from 'angular-web-storage';
+import { Recom } from '../state/recom.model';
+import { RecomQuery } from '../state/recom.query';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,12 +20,15 @@ import { SessionStorageService } from 'angular-web-storage';
 export class DashboardComponent implements OnInit, OnDestroy {
   title = 'app';
   data: ParserData[];
+  queryData: Observable<Recom[]>;
   options: string[];
+  elementKey: string;
   value: any;
   fieldValidators: { [fieldId: string]: Validator } = {};
   actions = {};
   schemaUrl: string;
   dialogRef: MatDialogRef<DialogComponent> | null;
+  item = {};
 
   KEY = 'isFirst';
 
@@ -36,7 +41,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private ngZone: NgZone,
     private router: Router,
     public session: SessionStorageService,
-    private parserservice: ParserService
+    private parserservice: ParserService,
+    private recomQuery: RecomQuery
   ) {
     akitaDevtools(ngZone);
   }
@@ -44,8 +50,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('Dashboard ', 'ngOnInit');
     this.parserservice.data.subscribe(data => {
-      this.data = data;
+     this.data = data;
     });
+    this.recomService.addJson(this.data);
+    this.queryData = this.recomQuery.selectAll();
   }
 
   ngOnDestroy(): void {
@@ -61,9 +69,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     console.log(event + ' ' + value);
   }
 
-  onButtonClick(value, ele) {
-    console.log(value, ele);
+  onButtonClick(value, ele, d) {
     this.options = value;
+    this.elementKey = ele;
     this.dialogRef = this.dialog.open(DialogComponent, {
       data: this.options,
     });
@@ -71,9 +79,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       if (result === undefined) {
         console.log('undefined');
       } else {
-        console.log('result:', result);
+        console.log('result:', result, this.elementKey, d);
         document.getElementById(ele).innerHTML = result;
-        this.recomService.add(null, null, result, 'empty');
+        this.item = {
+          state: result
+        };
       }
     });
   }

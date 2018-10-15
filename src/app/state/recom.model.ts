@@ -3,17 +3,25 @@ import { ID, guid } from '@datorama/akita';
 export interface Recom {
     id: ID;
     type: string;
-    item: string;
-    state: string;
-    impression: string;
+    name: string;
+    heading?: Array<string>;
+    item: Array<Item>;
 }
 
-export function createRecom({type, item, state, impression}: Partial<Recom>) {
+export interface Item {
+    name: string;
+    type?: string;
+    state?: string;
+    stateOption?: Array<string>;
+    impression?: string;
+}
+
+export function createRecom({type, name, heading, item}: Partial<Recom>) {
     return {
         id: guid(),
         type,
-        item,
-        state,
-        impression
+        name,
+        heading,
+        item
     } as Recom;
 }

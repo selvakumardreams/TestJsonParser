@@ -26,6 +26,7 @@ import { RecomService } from './state/recom.service';
 import { ReportComponent } from './report/report.component';
 import { DashboardComponent, DialogComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { AppComponent } from './app.component';
       preloadingStrategy: PreloadAllModules
     }),
   ],
-  providers: [ParserService, RecomService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
+  providers: [ParserService, {provide: MAT_DIALOG_DATA, useValue: {}},
+    RecomService, {provide: MatDialogRef, useValue: {}},
+    { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
     {
       provide: SchemaValidatorFactory,
       useClass: ZSchemaValidatorFactory
