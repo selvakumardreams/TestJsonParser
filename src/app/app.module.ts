@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ROUTES } from './app.routes';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { AngularWebStorageModule } from 'angular-web-storage';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   SchemaFormModule,
@@ -46,6 +47,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularWebStorageModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,

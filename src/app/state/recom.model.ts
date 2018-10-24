@@ -5,10 +5,11 @@ export interface Recom {
     type: string;
     name: string;
     heading?: Array<string>;
-    item: Array<Item>;
+    item?: Array<Item>;
 }
 
 export interface Item {
+    id: number;
     name: string;
     type?: string;
     state?: string;

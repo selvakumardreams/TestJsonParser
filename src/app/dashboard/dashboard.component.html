@@ -1,18 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<form [formGroup]="recomForm" (ngSubmit)="onSubmit()">
 <div class="container">
   <div *ngFor="let d of queryData | async">
     <div class="row_main" *ngIf="d.type=='section'">
       <div class="row_one">{{d.name}}</div>
       <div class="row_second" *ngFor="let s of d.item">
         <div *ngIf="s.name==='Overall'">
-          <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d)"
+            {{s.stateId}}
+          <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d, s.stateId)"
             *ngIf="s.type==='RADIO'">{{s.state}}</button>
           <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state)">
             {{s.state}}
           </div>
         </div>
         <div class="row_right" *ngIf="s.name!=='Overall'">
-          <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d)"
+          <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d, s.stateId)"
             *ngIf="s.type==='RADIO'">{{s.state}}</button>
           <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state)">
             {{s.state}}
@@ -46,5 +48,7 @@
       </table>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="suggestImpression()">Suggest Impression</button>
+  <!--<button type="submit" class="btn btn-primary" (click)="suggestImpression()">Suggest Impression</button>-->
+  <button type="submit" class="btn btn-primary" [disabled]="!recomForm.valid">Suggest Impression</button>
 </div>
+</form>

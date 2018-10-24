@@ -1,21 +1,47 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ID } from '@datorama/akita';
 import { Injectable } from '@angular/core';
 import { RecomStore } from './recom.store';
 import { createRecom, Item, Recom } from './recom.model';
+import { RecomQuery } from './recom.query';
 
 @Injectable({
     providedIn: 'root'
 })
 export class RecomService {
-    constructor(private recomStore: RecomStore) { }
+    constructor(private recomStore: RecomStore,
+        private recomQuery: RecomQuery) { }
+
+    queryData: Recom;
 
     add(type: string, name: string, heading: Array<string>, item: Array<Item>) {
         const data = createRecom({ type, name, heading, item });
         this.recomStore.add(data);
     }
 
-    update({id, item}: Recom) {
-        this.recomStore.update(id, {item});
+    update(id: string, result: string, itemId: number) {
+        this.queryData = this.recomQuery.getEntity(id);
+        this.recomStore.update(id, this.updateVeryNestedField(this.queryData, result, itemId));
+    }
+
+    updateVeryNestedField(state: Recom, result: string, itemId: number) {
+        const newState = state;
+        console.log('updateVeryNestedField', itemId);
+        return {
+            ...newState,
+            item: newState.item.map((item, index) => index === itemId ? { ...item, state: result } : item)
+        };
+    }
+
+    getItemValue(state, result) {
+        return state.item.map((item, index) => {
+            if (item.id === 0) {
+                return {
+                    state: result
+                };
+            }
+        });
     }
 
     addJson(data: any) {
@@ -32,6 +58,7 @@ export class RecomService {
 
                     if (data[index].recom.item[item].name === 'Overall') {
                         itemList = {
+                            stateId: item,
                             name: '',
                             type: data[index].recom.item[item].type,
                             state: data[index].recom.item[item].state,
@@ -40,6 +67,7 @@ export class RecomService {
                         };
                     } else {
                         itemList = {
+                            stateId: item,
                             name: data[index].recom.item[item].name,
                             type: data[index].recom.item[item].type,
                             state: data[index].recom.item[item].state,
@@ -48,13 +76,13 @@ export class RecomService {
                         };
                     }
                     newItem.push(itemList);
+                    optionList = [];
                 }
 
                 this.add(data[index].recom.type,
                     data[index].recom.name,
                     [],
                     newItem);
-                optionList = [];
                 newItem = [];
 
             } else if (data[index].recom.type === 'statement') {
@@ -79,7 +107,6 @@ export class RecomService {
                 }
 
                 for (let item = 0; item < data[index].recom.item.length; item++) {
-                    console.log('table', data[index].recom.item);
                     itemList = {
                         state: '',
                         stateOption: data[index].recom.item,

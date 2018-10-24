@@ -11,6 +11,8 @@ import { RecomService } from '../state/recom.service';
 import { SessionStorageService } from 'angular-web-storage';
 import { Recom } from '../state/recom.model';
 import { RecomQuery } from '../state/recom.query';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +25,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   queryData: Observable<Recom[]>;
   options: string[];
   elementKey: string;
+  dValue: Recom;
+  stateId: number;
   value: any;
   fieldValidators: { [fieldId: string]: Validator } = {};
   actions = {};
@@ -31,7 +35,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   item = {};
 
   KEY = 'isFirst';
+  starPattern = '/\*\.\*/g';
+  recomForm = this.fb.group({
+    rowSecond: Validators.pattern(this.starPattern),
+  });
 
+  // \*\.\*
   constructor(
     private service: ParserService,
     public dialog: MatDialog,
@@ -42,8 +51,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private router: Router,
     public session: SessionStorageService,
     private parserservice: ParserService,
-    private recomQuery: RecomQuery
+    private recomQuery: RecomQuery,
+    private fb: FormBuilder
   ) {
+    console.log('recomform' + this.recomForm);
     akitaDevtools(ngZone);
   }
 
@@ -52,7 +63,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.parserservice.data.subscribe(data => {
      this.data = data;
     });
-    this.recomService.addJson(this.data);
+    // this.recomService.addJson(this.data);
     this.queryData = this.recomQuery.selectAll();
   }
 
@@ -61,29 +72,32 @@ export class DashboardComponent implements OnInit, OnDestroy {
     console.log('Dashboard ', 'ngOnDestroy');
   }
 
-  suggestImpression(): void {
+  // suggestImpression(): void {
+  //   this.router.navigateByUrl('/report');
+  // }
+
+  onSubmit() {
     this.router.navigateByUrl('/report');
   }
 
   onContentUpdate(event: any, value: any) {
-    console.log(event + ' ' + value);
+    console.log('onContentUpdate', event , value);
   }
 
-  onButtonClick(value, ele, d) {
+  onButtonClick(value, ele, d, id) {
     this.options = value;
     this.elementKey = ele;
+    this.dValue = d;
+    this.stateId = id;
     this.dialogRef = this.dialog.open(DialogComponent, {
       data: this.options,
     });
     this.dialogRef.afterClosed().subscribe(result => {
       if (result === undefined) {
-        console.log('undefined');
       } else {
-        console.log('result:', result, this.elementKey, d);
         document.getElementById(ele).innerHTML = result;
-        this.item = {
-          state: result
-        };
+        console.log('itemId', this.stateId);
+        this.recomService.update(d.id, result, id);
       }
     });
   }
