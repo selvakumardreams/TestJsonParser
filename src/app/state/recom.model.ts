@@ -5,7 +5,7 @@ export interface Recom {
     type: string;
     name: string;
     heading?: Array<string>;
-    item?: Array<Item>;
+    items?: Array<Item>;
 }
 
 export interface Item {
@@ -13,16 +13,16 @@ export interface Item {
     name: string;
     type?: string;
     state?: string;
-    stateOption?: Array<string>;
+    stateoptions?: Array<string>;
     impression?: string;
 }
 
-export function createRecom({type, name, heading, item}: Partial<Recom>) {
+export function createRecom({type, name, heading, items}: Partial<Recom>) {
     return {
         id: guid(),
         type,
         name,
         heading,
-        item
+        items
     } as Recom;
 }

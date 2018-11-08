@@ -30,7 +30,7 @@ export class ContenteditableModelDirective {
 
     /** This should probably be debounced. */
     @HostListener('keyup') onKeyup() {
-        var value = this.elRef.nativeElement.innerText;
+        let value = this.elRef.nativeElement.innerText;
         this.lastViewModel = value;
         this.update.emit(value);
     }

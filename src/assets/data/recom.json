@@ -1,87 +1,125 @@
 [{
-    "recom": {
-      "type": "section",
-      "name": "Uterus",
-      "item": [{
-        "name": "Overall",
-        "type": "RADIO",
-        "state": "Uterus is anteverted and gravid",
-        "stateoption": ["Uterus is anteverted and gravid", "is retroverted and gravid", "*.*"],
-        "impression": "Uterus impression --"
-      }]
-    }
-  },
-  {
-    "recom": {
-      "type": "section",
-      "name": "Liver",
-      "item": [{
-        "name": "Overall",
-        "type": "RADIO",
-        "state": "is normal in size, contour and echopattern",
-        "stateoption": ["is normal in size, contour and echopattern", "is mildly enlarged in size, but with regular contour and echopattern"],
-        "impression": " Liver impression"
-      },{
-        "name": "Focal Lesions",
-        "type": "RADIO",
-        "state": "are not seen",
-        "stateoption": ["are not seen", "seen *.* details"],
-        "impression": " Focal Lesions impression"
-      },{
-        "name": "Portal Vein",
-        "type": "TEXT",
-        "state": "appears normal in shape and size",
-        "stateoption": "",
-        "impression": " Portal Vein impression"
-      },{
-        "name": "",
-        "type": "TEXT",
-        "state": "measures *.* cm",
-        "stateoption": "",
-        "impression": "impression"
-      }]
-    }
-  },
-  {
-    "recom": {
-      "type": "statement",
-      "name": "Statuatory Note",
-      "item": [{
-        "state": "Detailed anomaly scan is not possible at this stage of gestation and the same is explained to the patient, attendant."
-      }]
-    }
-  },
-  {
-    "recom": {
-      "type": "section",
-      "name": "Fetal Cardiac Activity",
-      "item": [{
-        "name": "Overall",
-        "type": "TEXT",
-        "state": "is visialized. FHR is *.* beats/min",
-        "stateoption": "",
-        "impression": "Fetal Cardiac Activity impression"
-      }]
-    }
-  },
-  {
-    "recom": {
-      "type": "table",
-      "name": "Fetal Biometry",
-      "heading": ["Parameter", "Middle Cerebral Artery", "test"],
-      "item": [{
-        "Parameter": "HC",
-        "Measurement1": "*.* cm",
-        "Measurement2": "*.* cm"
-      },{
-        "Parameter": "AC",
-        "Measurement1": "*.* cm",
-        "Measurement2": "*.* cm"
-      },{
-        "Parameter": "FL",
-        "Measurement1": "*.* cm",
-        "Measurement2": "*.* cm"
-      }]
-    }
+  "recom": {
+    "name": "Uterus",
+    "type": "section",
+    "items": [{
+      "name": "Overall",
+      "stateoptions": [{
+        "state": "State1Intrauterine fetus with good fetal cardiac activity is seen",
+        "impression": "Uterus impression --",
+        "PI": ""
+      }],
+      "visible": false,
+      "type": "TEXT",
+      "state": "State1Intrauterine fetus with good fetal cardiac activity is seen",
+      "impression": "Uterus impression --"
+    }, {
+      "name": "Fetal Heart Rate",
+      "stateoptions": [{
+        "state": "is *.* beats / minute",
+        "impression": "Uterus impression --",
+        "PI": ""
+      }],
+      "visible": true,
+      "state": "is *.* beats / minute",
+      "impression": "Uterus impression --",
+      "type": "TEXT"
+    }, {
+      "name": "Overall",
+      "stateoptions": [{
+        "state": "No loop of cord noted around the neck at present",
+        "impression": "Uterus impression --",
+        "PI": ""
+      }],
+      "visible": false,
+      "state": "No loop of cord noted around the neck at present",
+      "impression": "Uterus impression --",
+      "type": "TEXT"
+    }]
   }
-]
+}, {
+  "recom": {
+    "type": "table",
+    "items": [
+      ["Fetal Cranium", "Normal"],
+      ["Spine", "Normal"],
+      ["Four chamber view of cardia", "Normal"],
+      ["Stomach", "Normal"],
+      ["Both kidneys", "Normal"],
+      ["Urinary Bladder", "Normal"]
+    ],
+    "heading": ["Visualized Parts", "Observation"],
+    "name": ""
+  }
+}, {
+  "recom": {
+    "type": "statement",
+    "name": "Statuatory Note",
+    "items": [{
+      "state": ""
+    }]
+  }
+}, {
+  "recom": {
+    "name": "Placenta",
+    "type": "section",
+    "items": [{
+      "name": "Implantation",
+      "stateoptions": [{
+        "state": "is fundal, anterior and left in body of uterus with maturity grade of 1-2",
+        "impression": "impression"
+      }, {
+        "state": "is fundal, posterior and left in body of uterus with maturity grade of 1-2",
+        "impression": "impression2",
+        "PI": ""
+      }],
+      "visible": true,
+      "type": "RADIO",
+      "state": "is fundal, anterior and left in body of uterus with maturity grade of 1-2",
+      "impression": "impression"
+    }, {
+      "name": "Retroplacental  Heamatoma",
+      "stateoptions": [{
+        "state": "is not seen",
+        "impression": "Heamatoma",
+        "PI": ""
+      }, {
+        "state": "is seen, *.* details",
+        "impression": "--",
+        "PI": ""
+      }],
+      "visible": true,
+      "state": "is not seen",
+      "impression": "Heamatoma",
+      "type": "RADIO"
+    }, {
+      "name": "Lower Margin of Placenta",
+      "stateoptions": [{
+        "state": "is well above the internal os",
+        "impression": "Heamatoma",
+        "PI": ""
+      }, {
+        "state": "is *.* cm above the internal os",
+        "impression": "--",
+        "PI": ""
+      }],
+      "visible": true,
+      "state": "is well above the internal os",
+      "impression": "Heamatoma",
+      "type": "RADIO"
+    }]
+  }
+}, {
+  "recom": {
+    "type": "table",
+    "items": [
+      ["Fetal Movements", "*.* cm"],
+      ["Tone", "*.* cm"],
+      ["Liquor", "*.* cm"],
+      ["Breathing", "*.* cm"],
+      ["Total", "*.* cm"]
+    ],
+    "heading": ["Parameter", "Measurement"],
+    "name": ""
+  }
+}]

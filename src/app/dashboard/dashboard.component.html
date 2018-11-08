@@ -4,19 +4,19 @@
   <div *ngFor="let d of queryData | async">
     <div class="row_main" *ngIf="d.type=='section'">
       <div class="row_one">{{d.name}}</div>
-      <div class="row_second" *ngFor="let s of d.item">
+      <div class="row_second" *ngFor="let s of d.items">
         <div *ngIf="s.name==='Overall'">
             {{s.stateId}}
           <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d, s.stateId)"
             *ngIf="s.type==='RADIO'">{{s.state}}</button>
-          <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state)">
+          <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state, d, s.stateId)">
             {{s.state}}
           </div>
         </div>
         <div class="row_right" *ngIf="s.name!=='Overall'">
           <button type="button" [id]="d.name+s.name" class="btn black-background" (click)="onButtonClick(s.stateOption,d.name+s.name, d, s.stateId)"
             *ngIf="s.type==='RADIO'">{{s.state}}</button>
-          <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state)">
+          <div *ngIf="s.type==='TEXT'" contenteditable="true" [appContenteditableModel]="" (contenteditableModelChange)="onContentUpdate($event, s.state, d, s.stateId)">
             {{s.state}}
           </div>
         </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="row_main" *ngIf="d.type=='statement'">
       <div class="row_one">{{d.name}}</div>
-      <div class="row_second">{{d.item[0].state}}</div>
+      <div class="row_second">{{d.items[0].state}}</div>
     </div>
     <div class="row_main" *ngIf="d.type=='table'">
       <div class="row_one">{{d.name}}</div>
@@ -37,9 +37,9 @@
           </tr>
         </thead>
         <tbody class="row_main_edit_tbody">
-          <tr *ngFor="let item of d.item[0].stateOption">
-            <td *ngFor="let list of item | keys">
-              <div contenteditable="true" [appContenteditableModel]="item[list]" (contenteditableModelChange)="onContentUpdate($event, item[list])">
+          <tr *ngFor="let item of d.items[0].stateOption;let i = index;">
+            <td *ngFor="let list of item | keys; let j = index;">
+              <div contenteditable="true" [appContenteditableModel]="item[list]" (contenteditableModelChange)="onTableContentUpdate($event, item[list], d, i, j)">
                 {{item[list]}}
               </div>
             </td>

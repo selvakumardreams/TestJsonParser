@@ -78,10 +78,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.router.navigateByUrl('/report');
+    this.queryData = this.recomQuery.selectAll();
+    console.log('onsubmit', this.queryData);
   }
 
-  onContentUpdate(event: any, value: any) {
-    console.log('onContentUpdate', event , value);
+  onContentUpdate(event: any, value: any, d: any, id: any) {
+    console.log('onContentUpdate', event , d.id, id);
+    this.recomService.update(d.id, event, id);
+  }
+
+  onTableContentUpdate(event: any, value: any, d: any, i: number, j: number) {
+    this.recomService.updateTableContent(d.id, event, i, j);
   }
 
   onButtonClick(value, ele, d, id) {

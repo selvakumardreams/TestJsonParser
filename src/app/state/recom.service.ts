@@ -15,8 +15,8 @@ export class RecomService {
 
     queryData: Recom;
 
-    add(type: string, name: string, heading: Array<string>, item: Array<Item>) {
-        const data = createRecom({ type, name, heading, item });
+    add(type: string, name: string, heading: Array<string>, items: Array<Item>) {
+        const data = createRecom({ type, name, heading, items });
         this.recomStore.add(data);
     }
 
@@ -30,7 +30,22 @@ export class RecomService {
         console.log('updateVeryNestedField', itemId);
         return {
             ...newState,
-            item: newState.item.map((item, index) => index === itemId ? { ...item, state: result } : item)
+            items: newState.items.map((item, index) => index === itemId ? { ...item, state: result } : item)
+        };
+    }
+
+    updateTableContent(id: string, result: string, i: number, j: number) {
+        this.queryData = this.recomQuery.getEntity(id);
+        this.recomStore.update(id, this.updateTableNestedField(this.queryData, result, i, j));
+
+    }
+
+    updateTableNestedField(state: Recom, result: string, i: number, j: number) {
+        const newState = state;
+        console.log('updateVeryNestedField', i);
+        return {
+            ...newState,
+            items: newState.items.map((item, index) => index === j ? { ...item, stateOption: result } : item)
         };
     }
 
@@ -50,29 +65,29 @@ export class RecomService {
         let optionList = [];
         for (let index = 0; index < data.length; index++) {
             if (data[index].recom.type === 'section') {
-                for (let item = 0; item < data[index].recom.item.length; item++) {
+                for (let item = 0; item < data[index].recom.items.length; item++) {
 
-                    for (let option = 0; option < data[index].recom.item[item].stateoption.length; option++) {
-                        optionList.push(data[index].recom.item[item].stateoption[option]);
+                    for (let option = 0; option < data[index].recom.items[item].stateoptions.length; option++) {
+                        optionList.push(data[index].recom.items[item].stateoptions[option].state);
                     }
 
-                    if (data[index].recom.item[item].name === 'Overall') {
+                    if (data[index].recom.items[item].name === 'Overall') {
                         itemList = {
                             stateId: item,
                             name: '',
-                            type: data[index].recom.item[item].type,
-                            state: data[index].recom.item[item].state,
+                            type: data[index].recom.items[item].type,
+                            state: data[index].recom.items[item].state,
                             stateOption: optionList,
-                            impression: data[index].recom.item[item].impression
+                            impression: data[index].recom.items[item].impression
                         };
                     } else {
                         itemList = {
                             stateId: item,
-                            name: data[index].recom.item[item].name,
-                            type: data[index].recom.item[item].type,
-                            state: data[index].recom.item[item].state,
+                            name: data[index].recom.items[item].name,
+                            type: data[index].recom.items[item].type,
+                            state: data[index].recom.items[item].state,
                             stateOption: optionList,
-                            impression: data[index].recom.item[item].impression
+                            impression: data[index].recom.items[item].impression
                         };
                     }
                     newItem.push(itemList);
@@ -86,11 +101,11 @@ export class RecomService {
                 newItem = [];
 
             } else if (data[index].recom.type === 'statement') {
-                for (let item = 0; item < data[index].recom.item.length; item++) {
+                for (let item = 0; item < data[index].recom.items.length; item++) {
                     itemList = {
                         name: '',
                         type: '',
-                        state: data[index].recom.item[item].state,
+                        state: data[index].recom.items[item].state,
                         stateOption: '',
                         impression: ''
                     };
@@ -106,10 +121,10 @@ export class RecomService {
                     optionList.push(data[index].recom.heading[option]);
                 }
 
-                for (let item = 0; item < data[index].recom.item.length; item++) {
+                for (let item = 0; item < data[index].recom.items.length; item++) {
                     itemList = {
                         state: '',
-                        stateOption: data[index].recom.item,
+                        stateOption: data[index].recom.items,
                         impression: ''
                     };
 
